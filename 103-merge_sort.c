@@ -91,7 +91,7 @@ j = j + 1;
 }
 }
 printf("{Done]: ");
-printArray(array, iBegin, iEnd);
+printArray(workArray, iBegin, iEnd);
 }
 
 /**
