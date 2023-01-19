@@ -14,7 +14,10 @@ void merge_sort(int *array, size_t size)
 
 	workArray = malloc((size) * sizeof(int));
 	if (size == 0 || workArray == NULL)
+	{
+		free(workArray)
 		return;
+	}
 
 	CopyArray(array, 0, size, workArray);
 	TopDownSplitMerge(workArray, 0, size, array);
@@ -34,6 +37,7 @@ void merge_sort(int *array, size_t size)
 void CopyArray(int *array, int iBegin, int iEnd, int *workArray)
 {
 	int k;
+
 	for (k = iBegin; k < iEnd; k++)
 		workArray[k] = array[k];
 }
@@ -49,6 +53,7 @@ void CopyArray(int *array, int iBegin, int iEnd, int *workArray)
 void TopDownSplitMerge(int *workArray, int iBegin, int iEnd, int *array)
 {
 	int iMiddle;
+
 	if (iEnd - iBegin <= 1)
 		return;
 	iMiddle = (iEnd + iBegin) / 2;
@@ -71,29 +76,30 @@ void TopDownSplitMerge(int *workArray, int iBegin, int iEnd, int *array)
  */
 void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray)
 {
-    int i, j, k;
-    i = iBegin, j = iMiddle;
+	int i, j, k;
 
-    printf("Merging...\n");
-    printf("[left]: ");
-    printArray(array, iBegin, iMiddle);
-    printf("[right]: ");
-    printArray(array, iMiddle, iEnd);
-    for (k = iBegin; k < iEnd; k++)
-    {
-        if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
-        {
-            workArray[k] = array[i];
-            i = i + 1;
-        }
-        else
-        {
-            workArray[k] = array[j];
-            j = j + 1;
-        }
-    }
-    printf("[Done]: ");
-    printArray(workArray, iBegin, iEnd);
+	i = iBegin, j = iMiddle;
+
+	printf("Merging...\n");
+	printf("[left]: ");
+	printArray(array, iBegin, iMiddle);
+	printf("[right]: ");
+	printArray(array, iMiddle, iEnd);
+	for (k = iBegin; k < iEnd; k++)
+	{
+		if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
+		{
+			workArray[k] = array[i];
+			i = i + 1;
+		}
+		else
+		{
+			workArray[k] = array[j];
+			j = j + 1;
+		}
+	}
+	printf("[Done]: ");
+	printArray(workArray, iBegin, iEnd);
 }
 
 /**
@@ -106,6 +112,7 @@ void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray)
 void printArray(int *array, int iStart, int iEnd)
 {
 	int i;
+
 	for (i = iStart; i < iEnd; i++)
 	{
 		if (i + 1 == iEnd)
