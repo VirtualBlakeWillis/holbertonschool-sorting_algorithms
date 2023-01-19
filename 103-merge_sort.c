@@ -88,9 +88,9 @@ j = j + 1;
 }
 printf("Merging...\n");
 printf("[left]: ");
-printArray(workArray, iBegin, iMiddle);
-printf("[right]: ");
 printArray(workArray, iMiddle, iEnd);
+printf("[right]: ");
+printArray(workArray, iBegin, iMiddle);
 printf("[Done]: ");
 printArray(workArray, iBegin, iEnd);
 }
