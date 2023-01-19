@@ -15,7 +15,7 @@ void merge_sort(int *array, size_t size)
 	workArray = malloc((size) * sizeof(int));
 	if (size == 0 || workArray == NULL)
 	{
-		free(workArray)
+		free(workArray);
 		return;
 	}
 
