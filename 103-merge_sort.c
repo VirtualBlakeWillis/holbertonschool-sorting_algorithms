@@ -52,7 +52,7 @@ return;
 iMiddle = (iEnd + iBegin) / 2;
 /* sort both halves recursivly */
 TopDownSplitMerge(array, iBegin,  iMiddle, workArray);
-TopDownSplitMerge(array, iMiddle,    iEnd, workArray);
+TopDownSplitMerge(array, iMiddle, iEnd, workArray);
 
 TopDown(workArray, iBegin, iMiddle, iEnd, array);
 }
@@ -72,11 +72,7 @@ void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray)
 int i, j, k;
 i = iBegin, j = iMiddle;
 
-printf("Merging...\n");
-printf("[left]: ");
-printArray(workArray, iBegin, iMiddle);
-printf("[right]: ");
-printArray(workArray, iMiddle, iEnd);
+
 for (k = iBegin; k < iEnd; k++)
 {
 if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
@@ -90,6 +86,11 @@ workArray[k] = array[j];
 j = j + 1;
 }
 }
+printf("Merging...\n");
+printf("[left]: ");
+printArray(workArray, iBegin, iMiddle);
+printf("[right]: ");
+printArray(workArray, iMiddle, iEnd);
 printf("[Done]: ");
 printArray(workArray, iBegin, iEnd);
 }
