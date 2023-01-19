@@ -90,7 +90,7 @@ workArray[k] = array[j];
 j = j + 1;
 }
 }
-printf("{Done]: ");
+printf("[Done]: ");
 printArray(workArray, iBegin, iEnd);
 }
 
