@@ -74,7 +74,7 @@ i = iBegin, j = iMiddle;
 
 printf("Merging...\n");
 printf("[left]: ");
-printArray(array, iBegin, iMiddle);
+printArray(workArray, iBegin, iMiddle);
 printf("[right]: ");
 printArray(workArray, iMiddle, iEnd);
 for (k = iBegin; k < iEnd; k++)
