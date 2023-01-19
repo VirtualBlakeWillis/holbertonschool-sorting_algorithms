@@ -72,7 +72,11 @@ void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray)
 int i, j, k;
 i = iBegin, j = iMiddle;
 
-
+printf("Merging...\n");
+printf("[left]: ");
+printArray(workArray, iBegin, iMiddle);
+printf("[right]: ");
+printArray(workArray, iMiddle, iEnd);
 for (k = iBegin; k < iEnd; k++)
 {
 if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
@@ -86,11 +90,6 @@ workArray[k] = array[j];
 j = j + 1;
 }
 }
-printf("Merging...\n");
-printf("[left]: ");
-printArray(workArray, iMiddle, iEnd);
-printf("[right]: ");
-printArray(workArray, iBegin, iMiddle);
 printf("[Done]: ");
 printArray(workArray, iBegin, iEnd);
 }
