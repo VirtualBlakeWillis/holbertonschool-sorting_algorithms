@@ -19,6 +19,8 @@ void merge_sort(int *array, size_t size)
 	CopyArray(array, 0, size, workArray);
 	TopDownSplitMerge(workArray, 0, size, array);
 
+	free(workArray);
+
 }
 
 /**
