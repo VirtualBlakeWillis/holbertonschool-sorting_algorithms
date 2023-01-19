@@ -10,14 +10,14 @@
  */
 void merge_sort(int *array, size_t size)
 {
-int *workArray;
+	int *workArray;
 
-workArray = malloc((size) * sizeof(int));
-if (size == 0 || workArray == NULL)
-return;
+	workArray = malloc((size) * sizeof(int));
+	if (size == 0 || workArray == NULL)
+		return;
 
-CopyArray(array, 0, size, workArray);
-TopDownSplitMerge(workArray, 0, size, array);
+	CopyArray(array, 0, size, workArray);
+	TopDownSplitMerge(workArray, 0, size, array);
 
 }
 
@@ -31,9 +31,9 @@ TopDownSplitMerge(workArray, 0, size, array);
  */
 void CopyArray(int *array, int iBegin, int iEnd, int *workArray)
 {
-int k;
-for (k = iBegin; k < iEnd; k++)
-workArray[k] = array[k];
+	int k;
+	for (k = iBegin; k < iEnd; k++)
+		workArray[k] = array[k];
 }
 
 /**
@@ -46,15 +46,15 @@ workArray[k] = array[k];
  */
 void TopDownSplitMerge(int *workArray, int iBegin, int iEnd, int *array)
 {
-int iMiddle;
-if (iEnd - iBegin <= 1)
-return;
-iMiddle = (iEnd + iBegin) / 2;
-/* sort both halves recursivly */
-TopDownSplitMerge(array, iBegin,  iMiddle, workArray);
-TopDownSplitMerge(array, iMiddle, iEnd, workArray);
+	int iMiddle;
+	if (iEnd - iBegin <= 1)
+		return;
+	iMiddle = (iEnd + iBegin) / 2;
+	/* sort both halves recursivly */
+	TopDownSplitMerge(array, iBegin,  iMiddle, workArray);
+	TopDownSplitMerge(array, iMiddle, iEnd, workArray);
 
-TopDown(workArray, iBegin, iMiddle, iEnd, array);
+	TopDown(workArray, iBegin, iMiddle, iEnd, array);
 }
 
 
@@ -69,29 +69,29 @@ TopDown(workArray, iBegin, iMiddle, iEnd, array);
  */
 void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray)
 {
-int i, j, k;
-i = iBegin, j = iMiddle;
+    int i, j, k;
+    i = iBegin, j = iMiddle;
 
-printf("Merging...\n");
-printf("[left]: ");
-printArray(workArray, iBegin, iMiddle);
-printf("[right]: ");
-printArray(workArray, iMiddle, iEnd);
-for (k = iBegin; k < iEnd; k++)
-{
-if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
-{
-workArray[k] = array[i];
-i = i + 1;
-}
-else
-{
-workArray[k] = array[j];
-j = j + 1;
-}
-}
-printf("[Done]: ");
-printArray(workArray, iBegin, iEnd);
+    printf("Merging...\n");
+    printf("[left]: ");
+    printArray(array, iBegin, iMiddle);
+    printf("[right]: ");
+    printArray(array, iMiddle, iEnd);
+    for (k = iBegin; k < iEnd; k++)
+    {
+        if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
+        {
+            workArray[k] = array[i];
+            i = i + 1;
+        }
+        else
+        {
+            workArray[k] = array[j];
+            j = j + 1;
+        }
+    }
+    printf("[Done]: ");
+    printArray(workArray, iBegin, iEnd);
 }
 
 /**
@@ -103,12 +103,12 @@ printArray(workArray, iBegin, iEnd);
  */
 void printArray(int *array, int iStart, int iEnd)
 {
-int i;
-for (i = iStart; i < iEnd; i++)
-{
-if (i + 1 == iEnd)
-printf("%d\n", array[i]);
-else
-printf("%d, ", array[i]);
-}
+	int i;
+	for (i = iStart; i < iEnd; i++)
+	{
+		if (i + 1 == iEnd)
+			printf("%d\n", array[i]);
+		else
+			printf("%d, ", array[i]);
+	}
 }
