@@ -20,6 +20,8 @@ void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
 void merge_sort(int *array, size_t size);
 
+void radix_sort(int *array, size_t size);
+
 void CopyArray(int *array, int iBegin, int iEnd, int *workArray);
 void TopDownSplitMerge(int *workArray, int iBegin, int iEnd, int *array);
 void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray);
