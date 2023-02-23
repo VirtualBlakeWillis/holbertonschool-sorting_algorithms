@@ -49,7 +49,7 @@
     }
 
 
-    for (i=9; i >= 0; --i) {
+    for (i=(int)size; i >= 0; --i) {
         output[count[((array[i] % exp)/ (exp / 10))]-1] = array[i];
 
 
