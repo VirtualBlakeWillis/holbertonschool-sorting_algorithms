@@ -59,7 +59,7 @@
 
     for (i = 0; array[i]; ++i)
         array[i] = output[i];
-    print_array(array, 10);
+    print_array(array, (int)size);
     return;
  }
 
