@@ -1,7 +1,7 @@
 #include "sort.h"
 #include <stddef.h>
 #include <stdio.h>
- int countSort(int *array, size_t size, int exponent);
+ void countSort(int *array, size_t size, int exponent);
  int getBiggest(int *array, size_t size);
 
 /**
@@ -28,15 +28,15 @@
     }
  }
 
- int countSort(int *array, size_t size, int exp) {
-    int *output, i, *count;
+ void countSort(int *array, size_t size, int exp) {
+    int *output = NULL, i, *count = NULL;
 
     count = malloc(sizeof(int) * 10);
     output = malloc(sizeof(int) * size);
     if (count == NULL || output == NULL) {
         free(count);
         free(output);
-        return (-1);
+        return;
     }
 
     for (i = 0; i < (int) size; ++i) {
@@ -60,9 +60,10 @@
     for (i = 0; array[i]; ++i)
         array[i] = output[i];
     print_array(array, 10);
-    return 1;
-
+    return;
  }
+
+
  int getBiggest(int *array, size_t size) {
     int i, m = 0;
     for (i = 0; i < (int) size; i++) {
