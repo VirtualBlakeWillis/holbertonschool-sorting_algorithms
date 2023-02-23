@@ -40,33 +40,26 @@
     }
 
     for (i = 0; i < (int) size; ++i) {
-        printf("%d = %d\n", array[i], ((array[i] % exp) / (exp / 10)));
         ++count[((array[i] % exp) / (exp / 10))];
     }
-    print_array(count, 10);
 
     for (i = 1; i <= 10; ++i)
     {
         count[i] += count[i - 1];
     }
-        print_array(count, 10);
 
 
-    for (i=0; array[i]; ++i) {
-        printf("%d ", i);
+    for (i=9; i >= 0; --i) {
         output[count[((array[i] % exp)/ (exp / 10))]-1] = array[i];
-                printf("index[%d]: %d\n", count[((array[i] % exp)/ (exp / 10))]-1, output[count[((array[i] % exp)/ (exp / 10))]-1]);
 
 
         --count[((array[i] % exp)/ (exp / 10))];
     }
-        print_array(count, 10);
 
 
     for (i = 0; array[i]; ++i)
         array[i] = output[i];
     print_array(array, 10);
-    printf("%s", "\n\n\n");
     return 1;
 
  }
