@@ -25,6 +25,7 @@ void radix_sort(int *array, size_t size);
 void CopyArray(int *array, int iBegin, int iEnd, int *workArray);
 void TopDownSplitMerge(int *workArray, int iBegin, int iEnd, int *array);
 void TopDown(int *array, int iBegin, int iMiddle, int iEnd, int *workArray);
+void heap_sort(int *array, size_t size);
 
 void printArray(int *array, int iStart, int iEnd);
 #endif
